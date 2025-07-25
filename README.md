@@ -29,7 +29,7 @@ It uses your webcam and hand movements to control a virtual calculator with a sl
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/FloatMath.git
+   git clone https://github.com/Weird-ragazzo/FloatMath.git
    cd FloatMath```
 
 2. **Install dependencies**
