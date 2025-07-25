@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hand Letter Predictor</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; max-width: 400px; margin: auto; }
+    input, button { display: block; margin-top: 1rem; }
+    #result { margin-top: 1rem; font-size: 1.5rem; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Upload Hand Image</h1>
+  <input type="file" id="fileInput" accept="image/*">
+  <button id="sendBtn">Predict Letter</button>
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('sendBtn').addEventListener('click', async () => {
+      const input = document.getElementById('fileInput');
+      if (!input.files.length) {
+        console.log("No file selected.");
+        alert('Select an image first');
+        return;
+      }
+      const file = input.files[0];
+      const reader = new FileReader();
+      reader.onload = async () => {
+        const b64 = reader.result.split(',')[1];
+        console.log("Base64 image ready to send:", b64.slice(0, 30) + "...");
+
+        try {
+          const res = await fetch('http://localhost:8001/predict', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ image: b64 })
+          });
+
+          if (!res.ok) {
+            throw new Error(`Server responded with status ${res.status}`);
+          }
+
+          const data = await res.json();
+          console.log("Response from server:", data);
+          document.getElementById('result').textContent = data.letter || 'No letter returned';
+        } catch (err) {
+          console.error("Error while sending request:", err);
+          alert("Prediction failed. Check the console for details.");
+        }
+      };
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>
