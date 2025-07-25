@@ -33,9 +33,9 @@ It uses your webcam and hand movements to control a virtual calculator with a sl
    cd FloatMath```
 
 2. **Install dependencies**
-  ```bash
-  pip install -r requirements.txt
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 3. **Run the app**
    ```bash
@@ -67,6 +67,3 @@ FloatMath/
 
 ---
 
-## 📜 License
-
-This project is licensed under the [MIT License](LICENSE).
