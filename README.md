@@ -35,4 +35,4 @@ It uses your webcam and hand movements to control a virtual calculator with a sl
 2. **Install dependencies**
   ```bash
   pip install -r requirements.txt
-```
+   ```
