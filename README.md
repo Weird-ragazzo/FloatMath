@@ -35,4 +35,38 @@ It uses your webcam and hand movements to control a virtual calculator with a sl
 2. **Install dependencies**
   ```bash
   pip install -r requirements.txt
+```
+
+3. **Run the app**
+   ```bash
+   python app.py
    ```
+
+## 📁 File Structure
+
+```plaintext
+FloatMath/
+│
+├── app.py               # Main gesture-based calculator
+├── main.py              # Gesture recognition testing
+├── model.h5             # Gesture recognition model (optional)
+├── model.json
+├── sign_model.h5
+├── frontend.html        # Optional interface file
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
+
+---
+
+## 👨‍💻 Author
+
+**Dhruv Raghav**  
+© 2025 — All rights reserved.
+
+---
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
